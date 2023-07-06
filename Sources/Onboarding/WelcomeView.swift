@@ -12,12 +12,13 @@ public struct WelcomeView: View {
 
     public var body: some View {
         VStack(spacing: 32) {
+					Spacer(minLength: 0)
             Text(title)
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
                 ScrollView {
-                    VStack(spacing: 16) {
+									VStack(alignment: .leading, spacing: 16) {
                         ForEach(rows, id: \.id) { row in
                             row
                         }
