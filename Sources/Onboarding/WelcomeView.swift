@@ -11,15 +11,13 @@ public struct WelcomeView: View {
     let rows: [WelcomeRow]
 
     public var body: some View {
-        VStack(spacing: 24) {
-            Spacer()
+        VStack(spacing: 32) {
             Text(title)
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
-            Spacer()
                 ScrollView {
-                    VStack(spacing: 24) {
+                    VStack(spacing: 16) {
                         ForEach(rows, id: \.id) { row in
                             row
                         }
@@ -36,8 +34,7 @@ public struct WelcomeView: View {
             })
             .buttonBorderShape(.roundedRectangle(radius: 16))
             .buttonStyle(.borderedProminent)
-            Spacer()
         }
-        .padding(32)
+        .padding(24)
     }
 }
