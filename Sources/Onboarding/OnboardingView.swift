@@ -3,12 +3,12 @@
 
 import SwiftUI
 
-public struct WelcomeView: View {
+public struct OnboardingView: View {
     
     @AppStorage("showWelcomeView") var showWelcomeView: Bool = true
     
     let title: LocalizedStringKey
-    let rows: [WelcomeRow]
+    let rows: [OnboardingRow]
 
     public var body: some View {
         VStack(spacing: 32) {
@@ -17,12 +17,14 @@ public struct WelcomeView: View {
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
+								.padding(24)
                 ScrollView {
-									VStack(alignment: .leading, spacing: 16) {
+									VStack(alignment: .leading, spacing: 32) {
                         ForEach(rows, id: \.id) { row in
                             row
                         }
                     }
+									.padding(24)
                 }
                 .scrollBounceBehavior(.basedOnSize)
             Button(action: {
@@ -35,7 +37,7 @@ public struct WelcomeView: View {
             })
             .buttonBorderShape(.roundedRectangle(radius: 16))
             .buttonStyle(.borderedProminent)
+						.padding(24)
         }
-        .padding(24)
     }
 }
