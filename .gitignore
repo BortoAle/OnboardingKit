@@ -9,4 +9,5 @@ Package.resolved
 .podspecs
 DerivedData
 /.swiftpm
+/Sources/Onboarding/OnboardingUI.swift
 
