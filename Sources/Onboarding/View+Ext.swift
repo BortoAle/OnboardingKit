@@ -36,9 +36,21 @@ extension View {
 	/// ```
 	///
 	/// You can use the `@AppStorage` property wrapper to store and retrieve the state of `isWelcomeSheetPresented` if needed to show the welcome view conditionally.
-	public func welcomeSheet(isPresented: Binding<Bool>, onDismiss: (() -> Void)?, rows: [OnboardingRow], title: LocalizedStringKey) -> some View {
-         self.sheet(isPresented: isPresented, onDismiss: onDismiss) {
-					 OnboardingView(title: title, rows: rows)
+	public func welcomeSheet(
+		isPresented: Binding<Bool>,
+		onDismiss: (() -> Void)?,
+		rows: [OnboardingRow],
+		title: LocalizedStringResource,
+		onConfirm: @escaping () -> Void
+	) -> some View {
+         self.sheet(
+			isPresented: isPresented,
+			onDismiss: onDismiss) {
+					 OnboardingView(
+						title: title,
+						rows: rows,
+						action: onConfirm
+					 )
         }
     }
     

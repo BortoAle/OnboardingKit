@@ -9,8 +9,9 @@ import SwiftUI
 
 public struct OnboardingView: View {
 	
-	let title: LocalizedStringKey
+	let title: LocalizedStringResource
 	let rows: [OnboardingRow]
+	let action: () -> Void
 	
 	public var body: some View {
 		VStack(spacing: 32) {
@@ -30,14 +31,12 @@ public struct OnboardingView: View {
 				.padding(24)
 			}
 			.scrollBounceBehavior(.basedOnSize)
-			Button(action: {
-				
-			}, label: {
+			Button(action: action) {
 				Text("Continue")
 					.font(.headline)
 					.frame(maxWidth: .infinity)
 					.padding(.vertical, 8)
-			})
+			}
 			.buttonBorderShape(.roundedRectangle(radius: 16))
 			.buttonStyle(.borderedProminent)
 			.padding(24)
