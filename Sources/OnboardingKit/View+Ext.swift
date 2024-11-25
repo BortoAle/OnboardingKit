@@ -41,6 +41,7 @@ extension View {
 		onDismiss: (() -> Void)?,
 		rows: [OnboardingRow],
 		title: LocalizedStringResource,
+		actionTitle: LocalizedStringResource,
 		onConfirm: @escaping () -> Void
 	) -> some View {
          self.sheet(
@@ -49,6 +50,7 @@ extension View {
 					 OnboardingView(
 						title: title,
 						rows: rows,
+						actionTitle: actionTitle,
 						action: onConfirm
 					 )
         }

@@ -11,6 +11,7 @@ public struct OnboardingView: View {
 	
 	let title: LocalizedStringResource
 	let rows: [OnboardingRow]
+	let actionTitle: LocalizedStringResource
 	let action: () -> Void
 	
 	public var body: some View {
@@ -21,25 +22,25 @@ public struct OnboardingView: View {
 				.fontWeight(.bold)
 				.multilineTextAlignment(.center)
 				.lineLimit(3)
-				.padding(24)
+				.padding(32)
 			ScrollView {
 				VStack(alignment: .leading, spacing: 32) {
 					ForEach(rows, id: \.id) { row in
 						row
 					}
 				}
-				.padding(24)
+				.padding(32)
 			}
 			.scrollBounceBehavior(.basedOnSize)
 			Button(action: action) {
-				Text("Continue")
+				Text(actionTitle)
 					.font(.headline)
 					.frame(maxWidth: .infinity)
 					.padding(.vertical, 8)
 			}
 			.buttonBorderShape(.roundedRectangle(radius: 16))
 			.buttonStyle(.borderedProminent)
-			.padding(24)
+			.padding(32)
 		}
 	}
 }

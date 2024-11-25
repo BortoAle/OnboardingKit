@@ -13,8 +13,8 @@ import SwiftUI
 ///
 /// - Parameters:
 ///   - image: An `Image` representing an icon or visual element for the onboarding row.
-///   - title: A `LocalizedStringKey` representing the title or heading of the onboarding row.
-///   - description: A `LocalizedStringKey` representing the detailed description of the onboarding row.
+///   - title: A `String` representing the title or heading of the onboarding row.
+///   - description: A `String` representing the detailed description of the onboarding row.
 ///
 /// - Note: This view is typically used as a building block within the `OnboardingView` to create a series of onboarding steps.
 ///
@@ -29,10 +29,14 @@ public struct OnboardingRow: View {
 	
 	let id = UUID()
 	let image: Image
-	let title: LocalizedStringKey
-	let description: LocalizedStringKey
-	
-	public init(image: Image, title: LocalizedStringKey, description: LocalizedStringKey) {
+	let title: LocalizedStringResource
+	let description: LocalizedStringResource
+
+	public init(
+		image: Image,
+		title: LocalizedStringResource,
+		description: LocalizedStringResource
+	) {
 		self.image = image
 		self.title = title
 		self.description = description
