@@ -40,8 +40,8 @@ extension View {
 		isPresented: Binding<Bool>,
 		onDismiss: (() -> Void)?,
 		rows: [OnboardingRow],
-		title: LocalizedStringResource,
-		actionTitle: LocalizedStringResource,
+		title: LocalizedStringKey,
+		actionTitle: LocalizedStringKey,
 		onConfirm: @escaping () -> Void
 	) -> some View {
          self.sheet(

@@ -29,13 +29,13 @@ public struct OnboardingRow: View {
 	
 	let id = UUID()
 	let image: Image
-	let title: LocalizedStringResource
-	let description: LocalizedStringResource
+	let title: LocalizedStringKey
+	let description: LocalizedStringKey
 
 	public init(
 		image: Image,
-		title: LocalizedStringResource,
-		description: LocalizedStringResource
+		title: LocalizedStringKey,
+		description: LocalizedStringKey
 	) {
 		self.image = image
 		self.title = title

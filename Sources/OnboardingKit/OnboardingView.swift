@@ -9,9 +9,9 @@ import SwiftUI
 
 public struct OnboardingView: View {
 	
-	let title: LocalizedStringResource
+	let title: LocalizedStringKey
 	let rows: [OnboardingRow]
-	let actionTitle: LocalizedStringResource
+	let actionTitle: LocalizedStringKey
 	let action: () -> Void
 	
 	public var body: some View {
