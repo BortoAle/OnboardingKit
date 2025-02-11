@@ -1,7 +1,5 @@
 # OnboardingKit
 
-<img src="https://github.com/BortoAle/OnboardingKit/assets/64900362/5ffc01b3-9277-40b7-82b7-26ac7ffabbab" width="250">
-
 Simplify your app's onboarding process with a collection of ready-to-use SwiftUI components. OnboardingKit offers a seamless way to introduce your users to your app.
 
 ## Installation
