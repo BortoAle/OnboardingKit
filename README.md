@@ -20,33 +20,66 @@ For more detailed instructions on using Swift Package Manager, refer to the [Swi
 `OnboardingRow` allows you to create individual onboarding steps with an icon, title, and description. Each row represents a single step or concept in your onboarding flow.
 
 ```swift
-OnboardingRow(image: Image(systemName: "star.fill"), title: "Feature Highlight", description: "Discover the amazing features of our app.")
+OnboardingRow(
+    image: Image(systemName: "star.fill"),
+    style: .yellow,
+    title: "Feature Highlight",
+    description: "Discover the amazing features of our app."
+)
 ```
 
-## Welcome Sheet
+You can also mark a row as a Pro feature by setting `isProFeature: true`, which displays a badge next to the title.
+
+### Welcome Sheet
+
 Present a full onboarding experience as a welcome sheet from any view, using the `.welcomeSheet` modifier. This method allows for a seamless introduction to your app for first-time users.
 
 ```swift
-@AppStorage("isOnboardingShown") var isOnboardingShown: Bool = false
+@AppStorage("isOnboardingShown") var isOnboardingShown: Bool = true
 
 let onboardingRows = [
-    OnboardingRow(image: Image(systemName: "hand.wave.fill"), title: "Welcome", description: "Get a warm welcome to our app."),
-    OnboardingRow(image: Image(systemName: "lightbulb.fill"), title: "Discover", description: "Learn about unique features."),
-    OnboardingRow(image: Image(systemName: "paintbrush.fill"), title: "Customize", description: "Make the app yours with easy customization.")
+    OnboardingRow(image: Image(systemName: "hand.wave.fill"), style: .orange, title: "Welcome", description: "Get a warm welcome to our app."),
+    OnboardingRow(image: Image(systemName: "lightbulb.fill"), style: .yellow, title: "Discover", description: "Learn about unique features."),
+    OnboardingRow(image: Image(systemName: "paintbrush.fill"), style: .pink, title: "Customize", description: "Make the app yours with easy customization.")
 ]
 
 var body: some View {
     YourMainView()
-        .welcomeSheet(isPresented: $isOnboardingShown, onDismiss: {
-            isOnboardingShown = false
-        }, rows: onboardingRows, title: "Welcome to Our App", onConfirm: {
-            isOnboardingShown = false
-        })
+        .welcomeSheet(
+            isPresented: $isOnboardingShown,
+            onDismiss: {
+                isOnboardingShown = false
+            },
+            rows: onboardingRows,
+            title: "Welcome to Our App",
+            actionTitle: "Get Started",
+            onConfirm: {
+                isOnboardingShown = false
+            }
+        )
 }
 ```
 
+You can optionally add a secondary button by providing `secondaryActionTitle` and `onSecondaryConfirm` parameters.
+
+### OnboardingView
+
+If you need more control over presentation, you can use `OnboardingView` directly instead of the `.welcomeSheet` modifier:
+
+```swift
+OnboardingView(
+    title: "Welcome to Our App",
+    rows: onboardingRows,
+    actionTitle: "Continue",
+    action: {
+        // Handle primary action
+    },
+    secondaryActionTitle: nil,
+    secondaryAction: nil
+)
+```
 
 ## Demo
-<img src="https://github.com/BortoAle/OnboardingKit/assets/64900362/dd47cbb6-0715-413c-84b0-679146cb6283" height="600">
-<img src="https://github.com/BortoAle/OnboardingKit/assets/64900362/9029fc4d-bb1e-47d6-94da-e202efa50a36" height="600">
 
+<img alt="Light mode" src="https://github.com/user-attachments/assets/54c72abc-9661-4849-8650-2e9392485f05" height="600"/>
+<img alt="Dark mode" src="https://github.com/user-attachments/assets/cd313e4a-6209-4efb-944f-80a87f939652" height="600"/>
